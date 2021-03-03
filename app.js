@@ -14,20 +14,13 @@ client.on('message', message => {
 
   // Parse message contents for commands
   switch (message.content) {
-    case '!start':
+    case '!start-mc-server':
       post_request('start');
       message.channel.send('Starting server...');
       break;
-    case '!stop':
+    case '!stop-mc-server':
       post_request('stop');
-      message.channel.send('Starting server...');
-      break;
-    case '!restart':
-      post_request('restart');
-      message.channel.send('Restarting server...');
-      break;
-    case 'OMG':
-      message.channel.send('Yes?');
+      message.channel.send('Stop server...');
       break;
     case 'test':
       message.channel.send("Don't test me.");
