@@ -25,6 +25,9 @@ client.on('message', message => {
     case 'test':
       message.channel.send("Don't test me.");
       break;
+    case 'stop it':
+      message.channel.send("No.");
+      break;
   }
 });
 
