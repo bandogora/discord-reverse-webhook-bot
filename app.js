@@ -29,9 +29,9 @@ client.on('message', message => {
 });
 
 function post_request(action) {
-	var data = JSON.stringify({
-		action: action
-	})
+  var data = JSON.stringify({
+    action: action
+  })
 
   const options = {
     method: 'POST',
