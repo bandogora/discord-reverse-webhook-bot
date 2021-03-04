@@ -12,7 +12,7 @@ client.login(process.env.DISCORD_TOKEN);
 // Log all messages
 client.on('message', message => {
   // Exit if not on right channel
-  if (message.channel.id != CHANNEL_ID) return
+  if (message.channel.id != process.env.CHANNEL_ID) return
 
   // Parse message contents for commands
   switch (message.content) {
@@ -22,7 +22,7 @@ client.on('message', message => {
       break;
     case '!stop-mc-server':
       post_request('stop');
-      message.channel.send('Stop server...');
+      message.channel.send('Stopping server...');
       break;
     case '!commands':
       message.channel.send(commandsEmbed);
