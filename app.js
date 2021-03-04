@@ -78,8 +78,9 @@ const commandsEmbed = new Discord.MessageEmbed()
   )
   .setFooter('Brought to you by black magic')
 
-// HTTPS server to Keep Repl.it alive
-https.createServer((req, res) => {
+// HTTP server to Keep Repl.it alive
+const http = require('http');
+http.createServer((req, res) => {
   res.writeHead(200);
   res.end('ok');
-}).listen(3000);
+}).listen(8000);
