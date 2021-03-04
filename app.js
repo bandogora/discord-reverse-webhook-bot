@@ -72,7 +72,7 @@ const commandsEmbed = new Discord.MessageEmbed()
   .setColor('#0099ff')
   .setTitle('Minecraft Bot Commands')
   .addFields(
-    { name: '!start-mc-server', value: 'Starts the server. Obviously' },
+    { name: '!start-mc-server', value: 'Starts the server. Obviously. (Takes ~2mins)' },
     { name: '!stop-mc-server', value: 'Please make sure no one is on the server before stopping it.' },
     { name: '!commands', value: 'This.' }
   )
