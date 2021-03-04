@@ -11,6 +11,8 @@ client.login(process.env.DISCORD_TOKEN);
 
 // Log all messages
 client.on('message', message => {
+  // Exit if not on right channel
+  if (message.channel.id != CHANNEL_ID) return
 
   // Parse message contents for commands
   switch (message.content) {
@@ -22,11 +24,17 @@ client.on('message', message => {
       post_request('stop');
       message.channel.send('Stop server...');
       break;
+    case '!commands':
+      message.channel.send(commandsEmbed);
+      break;
     case 'test':
       message.channel.send("Don't test me.");
       break;
     case 'stop it':
-      message.channel.send("No.");
+      message.reply('No.');
+      break;
+    case 'please':
+      message.reply('Absolutely not.');
       break;
   }
 });
@@ -59,3 +67,20 @@ function post_request(action) {
   req.write(data)
   req.end()
 }
+
+const commandsEmbed = new Discord.MessageEmbed()
+  .setColor('#0099ff')
+  .setTitle('Minecraft Bot Commands')
+  .addFields(
+    { name: '!start-mc-server', value: 'Starts the server. Obviously' },
+    { name: '!stop-mc-server', value: 'Please make sure no one is on the server before stopping it.' },
+    { name: '!commands', value: 'This.' }
+  )
+  .setFooter('Brought to you by black magic')
+
+// Keep Repl.it server alive
+const server = https.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('ok');
+});
+server.listen(3000);
